@@ -1,4 +1,4 @@
-// 03/18 tried to make the game play until computer or player achieves 5 points
+// woooo it works!
 
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * (3-1+1) + 1);
@@ -49,8 +49,19 @@ function playGame() {
     console.log(playRound(playerSelection, computerSelection));
     console.log("Computer has " + computerPoints + " points!");
     console.log("Player has " + playerPoints + " points!");
+
+    function checkWinner() {
+        if (computerPoints === 5) {
+            console.log("Computer wins with 5 points!");
+        } else if (playerPoints === 5){
+            console.log("Player wins with 5 points!");
+        } else {
+            null;
+        }
+    }
+    checkWinner();
 }
 
-while (computerPoints != 5 || playerPoints != 5) {
+while (computerPoints < 5 && playerPoints < 5) {
     playGame();
 }
